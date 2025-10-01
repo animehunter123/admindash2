@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Attempting to restart the admin dash... via docker-compose or docker compose... please ignore errors and warnings. See the end of the script for details, and check webpage."
+
 # Old Docker
 docker-compose down
 docker-compose up -d
