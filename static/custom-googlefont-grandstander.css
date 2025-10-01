@@ -1,0 +1,9 @@
+/* GOOGLE FONTSSSSSSSS custom.css */
+@font-face {
+    font-family: 'Grandstander';
+    src: url('./googlefont-grandstander/Grandstander/Grandstander-VariableFont_wght.ttf') format('truetype'); /* Update the path if necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+

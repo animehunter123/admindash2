@@ -1,0 +1,40 @@
+<div class="container mx-auto px-4">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+    {% for key,value in sorted_dict %}
+    <div class="flex justify-center">
+      <button type="button" 
+              class="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded-md shadow-sm hover:shadow-md transition duration-200 transform hover:scale-105 active:scale-95"
+              data-bs-toggle="modal" 
+              data-bs-target="#{{key|replace(' ','')}}">
+        {{key}}
+      </button>
+
+      <div class="modal fade" id="{{key|replace(' ','')}}" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content bg-white rounded-md shadow-lg">
+            <div class="modal-header border-b border-gray-200 px-3 py-2">
+              <h5 class="modal-title text-lg font-semibold text-gray-900">{{key}}</h5>
+              <button type="button" class="btn-close p-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-4 py-3 space-y-2">
+              {% for link_name,link_url in value.items() %}
+                {% if 'DIVIDER' in link_name %}
+                  <hr class="border-gray-200 my-2">
+                {% else %}
+                  <a class="block px-3 py-1 text-gray-700 hover:bg-gray-100 rounded transition-colors duration-150" href="{{link_url}}" target="_blank">
+                    {{link_name}}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="modal-footer border-t border-gray-200 px-3 py-2">
+              <button type="button" class="bg-gray-400 hover:bg-gray-500 text-gray-900 px-4 py-1 rounded-md transition duration-150" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+

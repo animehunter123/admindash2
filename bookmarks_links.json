@@ -1,0 +1,12 @@
+{
+    "TEST01" : {
+        "Rocky Linux" : "https://rockylinux.org/"
+    },
+    "TEST02" : {
+        "Python Docs" : "https://docs.python.org/",
+        "Javascript Docs" : "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "DIVIDER1" : "iii",
+        "@W2Schools JS" : "https://www.w3schools.com/js/",
+        "@Kubernetes Docs" : "https://kubernetes.io/docs/home/"
+    }
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS v5 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" />
+
+    <!-- Custom CSS  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}" />
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='customwikibutton.css') }}" /> -->
+    
+    <!-- jqueryui  -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.structure.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.theme.min.css') }}" />
+    
+    <!-- favicon icon.png -->
+    <!-- <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}" /> -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='AdminDash-Icon-LogoIpsum.svg') }}" />
+
+    <!-- google font for navbrand -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom-googlefont-grandstander.css') }}" />
+
+    <!-- tailwind -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="{{ url_for('static', filename='tailwind/cdn.tailwindcss.com_20250415.js') }}"></script>
+
+    <!-- Title it as "Home" for now! -->
+    <title>{% block title %}Home{% endblock %}</title>
+
+
+</head>
+
+<body>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script type="text/javascript" src="{{ url_for('static', filename='jquery-3.6.1.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/bookmarks" style="display:flex;"
+      >
+          <!-- <img src="static/icon.png" alt="" width="30" height="24"> -->
+          <img src="static/AdminDash-Brand-LogoIpsum2-dark.png" alt="" width="30" height="24">
+      <span 
+        style="
+          padding-left: 10px;
+          color: white;
+          font-family: 'Grandstander', sans-serif;
+        "
+        >AdminDash (Low)</span>
+      </a>
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarrr"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarrr">
+          <div class="navbar-nav">
+              <a class="nav-item nav-link" id="Bookmarks" href="/bookmarks">Bookmarks</a>
+              <a class="nav-item nav-link" id="Docs" href="/docs">Docs</a>
+              <a class="nav-item nav-link copypasta-link" id="CopyPasta" href="http://cp.lm.local">CopyPasta</a>
+          </div>
+      </div>
+
+      <!-- Search Button!!! -->
+      <div class="navbar-nav ms-auto">
+          <form class="d-flex">
+              <input class="form-control me-3" autofocus="autofocus" id="autocomplete_field" type="search" placeholder="Quick Search..." aria-label="Search">
+          </form>
+      </div>
+  </nav>
+
+  <!-- Custom variable I think for... datalistOptions -->
+  <datalist id="datalistOptions" onChange="window.location.href=this.value"></datalist>
+
+  <!-- Content jinja data block... -->
+  <div class="container-fluid">{% block content %} {% endblock %}</div>
+
+  <!-- BgVault with Tailwind background...  (with absolute being -z-10 For Z Index LOWEST Tailwind!!! -->
+  <div class="absolute inset-0 bg-white dark:bg-gray-950 -z-10">
+    <div class="absolute inset-0 opacity-[0.2] dark:opacity-[0.15]">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="hexagons" width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(2)">
+            <path 
+              d="M25 0 L50 14.4 L50 38.4 L25 51.8 L0 38.4 L0 14.4 Z" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1"
+              class="text-blue-500/40 dark:text-blue-400/30"
+            />
+            <path 
+              d="M25 0 L50 14.4 L50 38.4 L25 51.8 L0 38.4 L0 14.4 Z" 
+              transform="translate(50, 25.9)" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1"
+              class="text-purple-500/40 dark:text-purple-400/30"
+            />
+          </pattern>
+          
+          <linearGradient id="hex-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.1" />
+            <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#ec4899" stopOpacity="0.1" />
+          </linearGradient>
+        </defs>
+        
+        <rect width="100%" height="100%" fill="url(#hexagons)" />
+        <rect width="100%" height="100%" fill="url(#hex-gradient)" />
+      </svg>
+    </div>
+    
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.15),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.1),transparent_60%)]" />
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.15),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.1),transparent_60%)]" />
+  </div>
+
+</body>
+
+<!-- Script #1 Cool script to set the active tab in the navbar (top part gets highlighted with this) -->
+<script>
+    $(function () {
+        $('nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+    });
+</script>
+
+<!-- Script #2 Search Bar Autocompleter Script using jquery and jqueryui... -->
+<script>
+    var options = '';
+    var map = new Map();
+    {% for key,value in sorted_dict %}
+        {% for link_name,link_url in value.items() %}
+            options += '<option data-valu=e"{{link_url}}" value="{{link_name}}">{{link_name}}</option>'
+            map.set("{{link_name}}","{{link_url}}")
+        {% endfor %}
+    {% endfor %}
+
+    var autokeys = Array.from(map.keys());
+    $('#autocomplete_field').autocomplete({
+        source: autokeys,
+        select: function (event, ui) {
+            var url = ui.item.value;
+            window.open(map.get(url));
+            this.value = ''
+            return false;
+        }
+    });
+</script>
+
+<!-- Script #X for FRAME element for CopyPasta -->
+<script>
+    $(document).ready(function() {
+        $(".copypasta-link").click(function(event) {
+          event.preventDefault(); // Prevent default link behavior
+      
+          // Remove the existing "container-fluid" div
+          $(".container-fluid").remove();
+
+          // Create a new div with the same class and the iframe inside
+          var newContainer = $("<div class='container-fluid px-0'></div>");
+          var iframe = $("<iframe src='http://cp.lm.local' frameborder='0' style='width: 100%; height: 100vh;'></iframe>");
+          newContainer.append(iframe);
+
+          // Hide the input field
+          $("#autocomplete_field").hide();
+
+          // Append the new container to the body
+          $("body").append(newContainer);
+
+          // Set actively highlighted in navbar
+          $('#Bookmarks').removeClass('active');
+          $('#Docs').removeClass('active');
+          $('#Mediawiki').removeClass('active');
+          $('#Wekan').removeClass('active');
+          $('#navbarrr > div > a.nav-item.nav-link.remoteshell-link').removeClass('active');
+          $('#navbarrr > div > a.nav-item.nav-link.mediawiki-link').removeClass('active');
+          $('#navbarrr > div > a.nav-item.nav-link.wekan-link').removeClass('active');
+          $('#navbarrr > div > a.nav-item.nav-link.copypasta-link').addClass('active');
+        });
+      });
+</script>    
+
+</html>

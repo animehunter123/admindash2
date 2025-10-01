@@ -1,0 +1,2 @@
+# Below are requirements, generic I know. 100% sure it worked with python/flask312 see README for details.
+flask

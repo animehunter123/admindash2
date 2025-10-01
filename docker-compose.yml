@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  admindash2-app:
+    image: admindash2-app:1.0
+    container_name: admindash2
+    ports:
+      - "5001:5000"
+    volumes:
+      # This is where the admindash2-app configs are, example: /opt/admindash2-app, but I prefer using CWD paths like ./
+      - ./:/opt/admindash
+    environment:
+      - VIRTUAL_HOST=admindash.lm.local,admindash
+    restart: always
+    network_mode: bridge

@@ -1,0 +1,13 @@
+{
+    "DOCSTEST01" : {
+        "LM Wekan" : "http://wekan.blah.local/"
+    },
+    "DOCSTEST02" : {
+        "Google Search" : "http://www.google.com/",
+        "Truenas Homepage" : "http://www.truenas.com/",
+        "React Docs" : "http://react.dev/",
+        "DIVIDER1" : "iii",
+        "@Rust Install" : "https://rustup.rs/",
+        "@Docker Install on Ubuntu" : "https://docs.docker.com/engine/install/ubuntu/"
+    }
+}
