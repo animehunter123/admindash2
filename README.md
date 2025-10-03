@@ -7,6 +7,7 @@
 * Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO:
+* needs to fix the navbar hamburgericon when zoom is too high
 * Lock it to a python/flask version. Last working test was: 
 ```groovy
 Python 3.13.7 
