@@ -12,6 +12,8 @@ sudo docker compose up -d
 
 sudo docker ps -a | grep -i admindash2-app
 
+clear; 
+
 echo "Attempted to launch it via docker-compose or docker compose...
 
 So now at this point it should be running as http://$(hostname -I | awk '{print $1}'):5001/"

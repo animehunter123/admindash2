@@ -12,5 +12,6 @@ fi
 
 echo "docker command now is installed, installing legacy docker-compose as well for wsl mitigation."
 pip3 install docker-compose --break-system-packages
+sudo apt install -y docker-compose
 
 echo "Install complete."
