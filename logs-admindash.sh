@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Old Docker Method
-docker-compose logs -f
+sudo docker-compose logs -f
 
 # New Docker Method
-docker compose logs -f
+sudo docker compose logs -f
 
