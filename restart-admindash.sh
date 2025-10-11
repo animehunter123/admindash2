@@ -3,14 +3,14 @@
 echo "Attempting to restart the admin dash... via docker-compose or docker compose... please ignore errors and warnings. See the end of the script for details, and check webpage."
 
 # Old Docker
-docker-compose down
-docker-compose up -d
+sudo docker-compose down
+sudo docker-compose up -d
 
 # New Docker
-docker compose down
-docker compose up -d
+sudo docker compose down
+sudo docker compose up -d
 
-docker ps -a | grep -i admindash2-app
+sudo docker ps -a | grep -i admindash2-app
 
 echo "Attempted to launch it via docker-compose or docker compose...
 
