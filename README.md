@@ -23,8 +23,10 @@ Werkzeug     3.1.3
 
 # TODO: @@@@@@@@
 * Remove the docs_links.json, as its OBE, and clean views.py appropriately.
-* Feature Creep: Make a icon bar in the navbar of admindash like EDGE, I THINK THIS WOULD BE COOL FOR LOW FAST HOMEPAGE
-* Feature Creep: Make a weather tracker in bottom of admindash to do JSON PULL FOR WEATHER/TYPHOON/QUAKE WIDGET
+* Add navbar customization instead (with iframes if you want bonus points).
+* Add Waitress w/8 threads, or Actix for sub 1ms response.
+* Feature Creep: Make a icon horizontal navbar in the navbar of admindash like EDGE BOOKMARKS with icons only.
+* Feature Creep: Make a weather tracker in bottom of admindash to do JSON PULL FOR WEATHER/TYPHOON/QUAKE WIDGET. (fetch w/e.c.).
 
 # FINISHED:
 * Fix the bold highlighting at the top when going to Wiki or Remoteshell?
