@@ -22,6 +22,6 @@ echo "OK...
 
 Attempted to launch it via docker-compose or docker compose (all possible commands from 20.04>rocky9)...
 
-So now at this point it should be running as http://$(hostname -I | awk '{print $1}'):5001/
+So now at this point it should be running as http://$(hostname -I | awk '{print $1}'):80/
 
 Script complete."

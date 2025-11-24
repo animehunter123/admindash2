@@ -17,7 +17,7 @@ Werkzeug     3.1.3
 * Install DockerCE on your Linux Host, you can reference the Dockerfile_InstallDockerCeOnHost.sh
 * Build the docker image for "admindash2-app", using the script Dockerfile_Build.sh
 * Launch it using the ./restart-admindash.sh
-* Navigate to http://localhost:5001/ and the webpage should load.
+* Navigate to http://localhost:80/ and the webpage should load.
 * Try searching for "Rocky" and the frontend javascript will auto populate any existing links.
 * Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
