@@ -22,6 +22,7 @@ Werkzeug     3.1.3
 * Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
+* When typing the searchbar, i dont wanna have to press down+enter after typing, just enter.
 * Remove the docs_links.json, as its OBE, and clean views.py appropriately.
 * Add navbar customization instead (with iframes if you want bonus points).
 * Add Waitress w/8 threads, or Actix for sub 1ms response.
