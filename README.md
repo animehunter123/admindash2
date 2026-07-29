@@ -14,12 +14,12 @@ Werkzeug     3.1.3
 ```
 
 # Quick Setup:
-* Install DockerCE on your Linux Host, you can reference the Dockerfile_InstallDockerCeOnHost.sh
-* Build the docker image for "admindash2-app", using the script Dockerfile_Build.sh
-* Launch it using the ./restart-admindash.sh
-* Navigate to http://localhost:80/ and the webpage should load.
-* Try searching for "Rocky" and the frontend javascript will auto populate any existing links.
-* Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
+* ./1-setup-docker-on-host.sh - Install DockerCE on your Linux Host
+* ./2-dockerfile_build.sh - Build the docker image for "admindash2-app"
+* ./restart-admindash.sh - Start the app!
+* Now, Navigate to http://localhost:80/
+
+It should be up! Try searching for "Rocky" and the frontend javascript will auto populate any existing links. Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
 * When typing the searchbar, i dont wanna have to press down+enter after typing, just enter.
