@@ -14,22 +14,16 @@ Werkzeug     3.1.3
 ```
 
 # Quick Setup:
-* ./1-setup-docker-on-host.sh - Install DockerCE on your Linux Host
-* ./2-dockerfile_build.sh - Build the docker image for "admindash2-app"
+* ./1-setup-docker-on-host.sh - Optional Install DockerCE on your Linux Host.
+* ./2-dockerfile_build.sh - Build the docker image for "admindash2-app".
 * ./restart-admindash.sh - Start the app!
-* Now, Navigate to http://localhost:80/
+* Browser to: http://localhost:80/
 
 It should be up! Try searching for "Rocky" and the frontend javascript will auto populate any existing links. Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
-* When typing the searchbar, i dont wanna have to press down+enter after typing, just enter. <-------- FIXED NEED TO VERIF ON OTHER SIDE!!!!!!!!!!!
-* Remove the docs_links.json, as its OBE, and clean views.py appropriately.
+* Make the search skip "DIVIDER1" "DIVIDER2" etc...
 * Add navbar customization instead (with iframes if you want bonus points).
-* Add Waitress w/8 threads, or Actix for sub 1ms response.
+* Add Waitress w/8 threads, or port to rust Axum/Actix for sub 1ms response.
 * Feature Creep: Make a icon horizontal navbar in the navbar of admindash like EDGE BOOKMARKS with icons only.
 * Feature Creep: Make a weather tracker in bottom of admindash to do JSON PULL FOR WEATHER/TYPHOON/QUAKE WIDGET. (fetch w/e.c.).
-
-# FINISHED:
-* Fix the bold highlighting at the top when going to Wiki or Remoteshell?
-* Add Google Font to QuickSearch, and also make it let you type in it. 
-* needs to fix the navbar hamburgericon when zoom is too high
