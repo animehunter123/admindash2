@@ -153,6 +153,24 @@
             window.open(map.get(url));
             this.value = ''
             return false;
+        },
+        open: function(event, ui) {
+            var instance = $(this).autocomplete("instance");
+            instance.menu._move(event, "first", event);
+        }
+    }).on('keydown', function(e) {
+        if (e.key === 'Enter') {
+            var menu = $('.ui-autocomplete.ui-menu');
+            if (menu.is(':visible')) {
+                var activeItem = menu.find('.ui-state-active').first();
+                var firstItem = menu.find('.ui-menu-item-wrapper').first();
+                if (activeItem.length) {
+                    activeItem.trigger('click');
+                } else if (firstItem.length) {
+                    firstItem.trigger('click');
+                }
+                e.preventDefault();
+            }
         }
     });
 </script>
