@@ -22,7 +22,6 @@ Werkzeug     3.1.3
 It should be up! Try searching for "Rocky" and the frontend javascript will auto populate any existing links. Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
-* Make the search skip "DIVIDER1" "DIVIDER2" etc...
 * Add navbar customization instead (with iframes if you want bonus points).
 * Add Waitress w/8 threads, or port to rust Axum/Actix for sub 1ms response.
 * Feature Creep: Make a icon horizontal navbar in the navbar of admindash like EDGE BOOKMARKS with icons only.
