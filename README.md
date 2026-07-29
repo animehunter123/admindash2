@@ -27,3 +27,7 @@ It should be up! Try searching for "Rocky" and the frontend javascript will auto
 * Add Waitress w/8 threads, or port to rust Axum/Actix for sub 1ms response.
 * Feature Creep: Make a icon horizontal navbar in the navbar of admindash like EDGE BOOKMARKS with icons only.
 * Feature Creep: Make a weather tracker in bottom of admindash to do JSON PULL FOR WEATHER/TYPHOON/QUAKE WIDGET. (fetch w/e.c.).
+
+# COMPLETED (PLZ VERIFY)
+* Ensure that typing > press ENTER works + DOWN+ENTER is second in dropdown list.
+* Ensure that DIVIDER1/DIVIDER2 etc... are not showing up in the search results and are filtered out (Array.from(map.keys()).filter(!item.startsWith('Divider' blah blah))
