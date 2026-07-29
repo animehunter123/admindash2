@@ -140,12 +140,16 @@
     var map = new Map();
     {% for key,value in sorted_dict %}
         {% for link_name,link_url in value.items() %}
+            {% if not link_name.startswith('DIVIDER') %}
             options += '<option data-valu=e"{{link_url}}" value="{{link_name}}">{{link_name}}</option>'
             map.set("{{link_name}}","{{link_url}}")
+            {% endif %}
         {% endfor %}
     {% endfor %}
 
-    var autokeys = Array.from(map.keys());
+    var autokeys = Array.from(map.keys()).filter(function(item) {
+        return !item.startsWith('DIVIDER');
+    });
     $('#autocomplete_field').autocomplete({
         source: autokeys,
         select: function (event, ui) {
