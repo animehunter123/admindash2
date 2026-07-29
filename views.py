@@ -17,9 +17,9 @@ def bookmarks():
     sorted_data = sorted(data.items(), key=lambda x: x[0].lower())
     return render_template("bookmarks.html", sorted_dict=sorted_data)
 
-@views.route("/docs")
-def docs():
-    with open("./docs_links.json", "r", encoding="UTF-8") as json_file:
-        data = json.load(json_file)
-    sorted_data = sorted(data.items(), key=lambda x: x[0].lower())
-    return render_template("docs.html", sorted_dict=sorted_data)
+# @views.route("/docs")
+# def docs():
+#     with open("./docs_links.json", "r", encoding="UTF-8") as json_file:
+#         data = json.load(json_file)
+#     sorted_data = sorted(data.items(), key=lambda x: x[0].lower())
+#     return render_template("docs.html", sorted_dict=sorted_data)
