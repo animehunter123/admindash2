@@ -23,7 +23,7 @@ It should be up! Try searching for "Rocky" and the frontend javascript will auto
 
 # TODO: @@@@@@@@
 * Add navbar customization instead (with iframes if you want bonus points).
-* Add Waitress w/8 threads, or port to rust Axum/Actix for sub 1ms response.
+* Add Waitress w/8 threads, or _port to rust_ Axum/Actix for sub 1ms response.
 * Feature Creep: Make a icon horizontal navbar in the navbar of admindash like EDGE BOOKMARKS with icons only.
 * Feature Creep: Make a weather tracker in bottom of admindash to do JSON PULL FOR WEATHER/TYPHOON/QUAKE WIDGET. (fetch w/e.c.).
 
