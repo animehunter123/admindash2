@@ -22,6 +22,8 @@ Werkzeug     3.1.3
 It should be up! Try searching for "Rocky" and the frontend javascript will auto populate any existing links. Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
+* Bug CSS: Reactivity no longer works when adding cp/wik/wek/rshell and resizing horizontally.
+* Bug CSS: Grid doesnt center the last row anymore unlike old admindash ver.
 * Add Keyboard Ctrl+/ to focus on searchbar
 * Add navbar customization instead (with iframes if you want bonus points).
 * Add Waitress w/8 threads, or _port to rust_ Axum/Actix for sub 1ms response.
