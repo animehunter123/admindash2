@@ -22,6 +22,12 @@ Werkzeug     3.1.3
 It should be up! Try searching for "Rocky" and the frontend javascript will auto populate any existing links. Stop it using the ./stop-admindash.sh and then edit the bookmarks_links.json file as you like.
 
 # TODO: @@@@@@@@
+* Bug PYTHON: MAJOR BUG FOUND...
+IF THE JSON HAS A URL WITH AMPERSAND... The BOOKMARK converts INCORRECT AMBERSAND URLS
+https://blahblah.com/blahblah123/poop.php?GROUP=returners&TEAM=eagles
+became...
+https://blahblah.com/blahblah123/poop.php?GROUP=returners&amp;TEAM=eagles
+
 * Bug CSS: Grid doesnt center the last row anymore unlike old admindash ver.
 * Bug CSS: Reactivity no longer works when adding cp/wik/wek/rshell and resizing horizontally.
 * Add a version in the brand hover I guess of the git commit date?
