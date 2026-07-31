@@ -6,7 +6,24 @@ Learned this from AI, really useful to know as JSON can be:
 
 [k:sizeunknown,v:sizeunknown] <-- which is our current bookmarks json file.
 
-Therefore, see below...
+Therefore, see below... (2 AI responses to help wrap brain around the json -- and a <X,Y> confusing thing in rust..)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AI RESPONSE #1:
+
+
 
 
 
@@ -197,4 +214,249 @@ As a rule of thumb:
 * **Known field names** → `struct`
 * **Unknown or dynamic field names** → `HashMap`
 * **Ordered list of items** → `Vec<T>`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+AI RESPONSE #2:
+
+
+Don't apologize—this is a very common point of confusion. The `HashMap<K, V>` syntax takes a bit to click, especially if you're new to Rust.
+
+The key idea is:
+
+```rust
+HashMap<KeyType, ValueType>
+```
+
+Not:
+
+```text
+HashMap<OK, ERROR>
+```
+
+That's `Result<T, E>` you're thinking of:
+
+```rust
+Result<String, Error>
+```
+
+where the first type is the success value and the second is the error.
+
+A `HashMap` is different. It always has **two types**:
+
+```rust
+HashMap<Key, Value>
+```
+
+---
+
+Let's make a tiny example.
+
+```rust
+let ages: HashMap<String, u32>;
+```
+
+Read it as:
+
+> "A HashMap whose **keys** are `String`s and whose **values** are `u32`s."
+
+It might contain:
+
+```text
+"Alice" -> 24
+"Bob"   -> 31
+"Carol" -> 18
+```
+
+Notice:
+
+* `"Alice"` is the **key**
+* `24` is the **value**
+
+---
+
+Now let's look at your JSON.
+
+```json
+{
+    "TEST01": {
+        "Rocky Linux": "https://rockylinux.org/"
+    }
+}
+```
+
+The outer object has:
+
+```text
+key = "TEST01"
+value = {
+    "Rocky Linux": "https://rockylinux.org/"
+}
+```
+
+So the **outer** map is
+
+```rust
+HashMap<
+    String,              // "TEST01"
+    ???                  // what's on the right?
+>
+```
+
+What's on the right?
+
+Another object!
+
+```json
+{
+    "Rocky Linux": "https://rockylinux.org/"
+}
+```
+
+That object also has keys and values.
+
+```text
+"Rocky Linux" -> "https://rockylinux.org/"
+```
+
+Both are strings.
+
+So that object becomes
+
+```rust
+HashMap<String, String>
+```
+
+---
+
+Now substitute that back in.
+
+The outer map becomes
+
+```rust
+HashMap<
+    String,
+    HashMap<String, String>
+>
+```
+
+which is exactly
+
+```rust
+HashMap<String, HashMap<String, String>>
+```
+
+---
+
+Sometimes drawing it helps.
+
+Your JSON looks like this:
+
+```text
+Outer HashMap
+
+"TEST01"
+    |
+    +------> Inner HashMap
+                 |
+                 +-- "Rocky Linux"
+                 |        |
+                 |        +--> "https://rockylinux.org/"
+                 |
+                 +-- ...
+```
+
+Then
+
+```text
+"TEST02"
+    |
+    +------> Inner HashMap
+                 |
+                 +-- "Python Docs"
+                 |        |
+                 |        +--> "https://docs.python.org/"
+                 |
+                 +-- "Javascript Docs"
+                 |        |
+                 |        +--> "https://developer.mozilla.org/..."
+```
+
+---
+
+## But...
+
+Looking at what you're actually building—a grid of buttons where each button opens another list of buttons—I **wouldn't** use nested `HashMap`s.
+
+I'd model the data instead.
+
+Something like:
+
+```rust
+struct Category {
+    name: String,
+    links: Vec<Link>,
+}
+
+struct Link {
+    title: String,
+    url: String,
+}
+```
+
+Then your JSON would be:
+
+```json
+[
+  {
+    "name": "TEST01",
+    "links": [
+      {
+        "title": "Rocky Linux",
+        "url": "https://rockylinux.org/"
+      }
+    ]
+  },
+  {
+    "name": "TEST02",
+    "links": [
+      {
+        "title": "Python Docs",
+        "url": "https://docs.python.org/"
+      },
+      {
+        "title": "Javascript Docs",
+        "url": "https://developer.mozilla.org/"
+      }
+    ]
+  }
+]
+```
+
+This is much more "Rust-like" because everything has a clear type instead of using arbitrary strings as keys. It also makes it easier to preserve order (which matters for a UI), add icons, descriptions, or flags later, and work with Dioxus components.
+
+Before suggesting a full design, though, can I ask one question?
+
+**Do the names like `"TEST01"` and `"TEST02"` actually mean something (for example, "Programming", "Linux", "Cloud"), or are they just placeholders while you're developing?**
 
